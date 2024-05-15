@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace JWT_Auth_Example.Core.Repositories
 {
-	public interface IGenericRepository<T> where T : class
+	public interface IGenericRepository<TEntity> where TEntity : class
 	{
-		Task<T> CreateAsync(T entity);
-		void Update(T entity);
-		void Delete(T entity);
-		Task<IEnumerable<T>> GetAllAsync();
-		Task<T> GetByIdAsync(int id);
+		Task<TEntity> CreateAsync(TEntity entity);
+		void Update(TEntity entity);
+		void Delete(TEntity entity);
+		Task<IEnumerable<TEntity>> GetAllAsync();
+		Task<TEntity> GetByIdAsync(int id);
 
-		IQueryable<T> Where(Expression<Func<T, bool>> predicate);
+		IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
 	}
 }
