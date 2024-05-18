@@ -9,8 +9,8 @@ namespace JWT_Auth_Example.Core.Repositories
 {
 	public interface IGenericRepository<TEntity> where TEntity : class
 	{
-		Task<TEntity> CreateAsync(TEntity entity);
-		void Update(TEntity entity);
+		Task CreateAsync(TEntity entity);
+		TEntity Update(TEntity entity);
 		void Delete(TEntity entity);
 		Task<IEnumerable<TEntity>> GetAllAsync();
 		Task<TEntity> GetByIdAsync(int id);

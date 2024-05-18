@@ -8,7 +8,7 @@ namespace JWT_Auth_Example.Data.Repositories
 	public class GenericRepository<Tentity> : IGenericRepository<Tentity> where Tentity : class
 	{
 
-		private readonly AuthContextDb _authContextDb;
+		protected readonly AuthContextDb _authContextDb;
 		private readonly DbSet <Tentity> _dbSet;
 
 		public GenericRepository(AuthContextDb authContextDb, DbSet<Tentity> dbSet)
@@ -17,34 +17,43 @@ namespace JWT_Auth_Example.Data.Repositories
 			_dbSet = _authContextDb.Set<Tentity>();
 		}
 
-		public  async Task<Tentity> CreateAsync(Tentity entity)
+		public  async Task CreateAsync(Tentity entity)
 		{
-			throw new NotImplementedException();
+		     await	_dbSet.AddAsync(entity);
 		}
 
 		public void Delete(Tentity entity)
 		{
-			throw new NotImplementedException();
+			_dbSet.Remove(entity);
 		}
 
-		public Task<IEnumerable<Tentity>> GetAllAsync()
+		public async Task<IEnumerable<Tentity>> GetAllAsync()
 		{
-			throw new NotImplementedException();
+			return await _dbSet.ToListAsync();
 		}
 
-		public Task<Tentity> GetByIdAsync(int id)
+		public async Task<Tentity> GetByIdAsync(int id)
 		{
-			throw new NotImplementedException();
+			var entity = await _dbSet.FindAsync(id);
+
+			if (entity != null)
+			{
+				_authContextDb.Entry(entity).State = EntityState.Detached;
+			}
+
+			return entity;
 		}
 
-		public void Update(Tentity entity)
+
+		public Tentity Update(Tentity entity)
 		{
-			throw new NotImplementedException();
+			_authContextDb.Entry(entity).State = EntityState.Modified;
+			return entity;
 		}
 
 		public IQueryable<Tentity> Where(Expression<Func<Tentity, bool>> predicate)
 		{
-			throw new NotImplementedException();
+			return _dbSet.Where(predicate);
 		}
 	}
 }
