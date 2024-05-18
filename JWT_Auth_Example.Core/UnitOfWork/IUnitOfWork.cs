@@ -9,6 +9,6 @@ namespace JWT_Auth_Example.Core.UnitOfWork
 	public interface IUnitOfWork
 	{
 		Task CommitAsync();
-		Task Commit();
+		void Commit();
 	}
 }

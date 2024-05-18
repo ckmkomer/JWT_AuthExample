@@ -1,12 +1,7 @@
 ﻿using JWT_Auth_Example.Core.Repositories;
 using JWT_Auth_Example.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JWT_Auth_Example.Data.Repositories
 {
@@ -24,7 +19,7 @@ namespace JWT_Auth_Example.Data.Repositories
 
 		public  async Task<Tentity> CreateAsync(Tentity entity)
 		{
-		 return await_dbSet.Add(entity);
+			throw new NotImplementedException();
 		}
 
 		public void Delete(Tentity entity)

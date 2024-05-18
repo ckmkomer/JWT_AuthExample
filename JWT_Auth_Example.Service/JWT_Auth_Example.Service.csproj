@@ -26,4 +26,9 @@
     <ProjectReference Include="..\JWT_Auth_Example.Data\JWT_Auth_Example.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Abstract\" />
+    <Folder Include="Services\Concrete\" />
+  </ItemGroup>
+
 </Project>
