@@ -10,7 +10,10 @@ namespace JWT_Auth_Example.Service.Mapper
 		{
 			CreateMap<Product,  ProductDto>().ReverseMap();
 			CreateMap<UserApp, UserAppDto>().ReverseMap();
-			CreateMap<RefreshTokenDto, RefreshTokenDto>().ReverseMap();
+			
+
+			
+
 
 		}
 	}

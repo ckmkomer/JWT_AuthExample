@@ -3,8 +3,9 @@ using JWT_Auth_Example.Core.Dtos;
 
 namespace JWT_Auth_Example.Core.Services
 {
-	internal interface ITokenService
+	public interface ITokenService
 	{
+
 		TokenDto CreateToken(UserAppDto userAppDto);
 		ClientTokenDto CreateClientToken(Client client);
 	}
